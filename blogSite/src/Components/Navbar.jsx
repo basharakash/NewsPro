@@ -12,7 +12,7 @@ const Navbar = () => {
     }
 
     const NavItems = [
-        {path:"/home", link:"Home"},
+        {path:"/", link:"Home"},
         {path:"/blogs", link:"Blogs"},
         {path:"/services", link:"Services"},
         {path:"/contact", link:"Contact"},
@@ -28,7 +28,11 @@ const Navbar = () => {
             <ul className='md:flex gap-12 text-lg hidden'>
                 {
                     NavItems.map(({path, link}) => <li key={path}>
-                        <NavLink to={path} > {link}</NavLink>
+                        <NavLink className={({ isActive}) =>
+                      isActive
+                        ? "active"
+                        : ""
+                    } to={path} > {link}</NavLink>
                     </li>)
                 }
             </ul>
