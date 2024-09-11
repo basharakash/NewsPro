@@ -19,7 +19,7 @@ const Navbar = () => {
         {path:"/about", link:"About"},
     ]
   return (
-    <header className='bg-black text-white'>
+    <header className='bg-black text-white fixed w-full'>
         <nav className=' px-4 py-4 max-w-7xl mx-auto flex justify-between items-center'>
             <a href="/" className='text-2xl font-bold'>Design <span className='text-green-500'>DK</span></a>
 
