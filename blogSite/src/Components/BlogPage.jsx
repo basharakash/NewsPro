@@ -7,7 +7,7 @@ const BlogPage = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const pageSize = 12 /*Blog per page */
     const [selectedCategory, setselectedCategory] = useState(null);
-
+    const [activeCategory, setActiveCategory] = useState(null);
 
     useEffect( () => {
         const fetchBlogs = async () => {
@@ -24,6 +24,17 @@ const BlogPage = () => {
         }
         fetchBlogs()
     },[currentPage,pageSize,selectedCategory])
+
+    const handlePageChange = (pageNumber) => {
+      setCurrentPage(pageNumber)
+    }
+
+    const handleCategoryChange = (category) => {
+      setselectedCategory(category)
+      currentPage(1)
+      setActiveCategory(category)
+
+    }
   return (
     <div>
       {/* catagory sections */}
@@ -31,7 +42,7 @@ const BlogPage = () => {
 
       {/* BlogsCards */}
       <div>
-        <BlogCards blogs={blogs}/>
+        <BlogCards blogs={blogs} currentPage={currentPage} selectedCategory={selectedCategory} pageSize={pageSize} />
       </div>
 
       {/* Pagination section */}
