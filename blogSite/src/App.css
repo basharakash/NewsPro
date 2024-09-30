@@ -5,3 +5,29 @@
 .active{
     @apply text-green-500 
 }
+
+.pagination  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+}
+
+.pagination li.activePagination {
+    background: #fa8231;
+    color: white;
+    border-radius: 4px;
+}
