@@ -9,7 +9,8 @@ const BlogCards = ({blogs, currentPage, selectedCategory, pageSize}) => {
     // eslint-disable-next-line react/prop-types
     .filter((blog) => !selectedCategory || blog.category === selectedCategory)
     .slice((currentPage-1)*pageSize, currentPage*pageSize)
-  console.log (filterBlogs)
+    // To see all filterBlogs data 
+  // console.log (filterBlogs)
   return (
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
       {

@@ -2,8 +2,10 @@ import React from 'react';
 
 const Pagination = ({pageChange, currentPage, blogs, pageSize}) => {
    
+    // eslint-disable-next-line react/prop-types
     const totalPages = Math.ceil(blogs.length / pageSize)
-    console.log(totalPages)
+    // To see Totalpages data
+    // console.log(totalPages)
     const renderPaginationLink = () => {
       return Array.from({length: totalPages}, (_, i) => i +1).map((pageNumber) => (
         <li className={pageNumber === currentPage ? "activePagination" :""} key={pageNumber}>
