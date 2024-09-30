@@ -5,7 +5,10 @@ import {FaUser} from 'react-icons/fa'
 // eslint-disable-next-line react/prop-types
 const BlogCards = ({blogs, currentPage, selectedCategory, pageSize}) => {
 
-    const filterBlogs = blogs.filter((blog) => !selectedCategory || blog.category === selectedCategory).slice((currentPage-1)*pageSize, currentPage*pageSize)
+    const filterBlogs = blogs
+    // eslint-disable-next-line react/prop-types
+    .filter((blog) => !selectedCategory || blog.category === selectedCategory)
+    .slice((currentPage-1)*pageSize, currentPage*pageSize)
 
   return (
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
@@ -18,7 +21,7 @@ const BlogCards = ({blogs, currentPage, selectedCategory, pageSize}) => {
             <p className='mb-2 text-gray-600'><FaUser className='inline-flex mr-2 items-center'/> {blog.author}</p>
             <p className='text-sm text-gray-500'>Published: {blog.published_date} </p>
 
-        </Link> )
+        </Link> ) 
       }
     </div>
   );
