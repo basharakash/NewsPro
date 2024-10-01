@@ -16,11 +16,11 @@ const Pagination = ({pageChange, currentPage, blogs, pageSize}) => {
   return (
     <ul className='pagination my-8 flex-wrap gap-4'>
       <li>
-        <button onClick={() => pageChange(currentPage - 1)} disabled = {currentPage === 1}>Previous</button>
+        <button className='border-solid border-2 border-gray-400 py-1 px-4 rounded-md' onClick={() => pageChange(currentPage - 1)} disabled = {currentPage === 1}>Previous</button>
       </li>
       <div className='flex'>{renderPaginationLink()}</div>
       <li>
-        <button onClick={() => pageChange(currentPage + 1)} disabled = {currentPage === totalPages}>Next</button>
+        <button className='border-solid border-2 border-gray-400 py-1 px-4 rounded-md' onClick={() => pageChange(currentPage + 1)} disabled = {currentPage === totalPages}>Next</button>
       </li>
     </ul>
   );
