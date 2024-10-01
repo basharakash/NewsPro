@@ -18,18 +18,18 @@ const BlogPage = () => {
             if(selectedCategory) {
               url+= `&category=${selectedCategory}`
             }
- 
+
             const response = await fetch(url)
             const data = await response.json()
             setBlogs(data)
         }
         fetchBlogs()
     },[currentPage,pageSize,selectedCategory])
-    // Page changing function
+
     const handlePageChange = (pageNumber) => {
       setCurrentPage(pageNumber)
     }
-    
+
     const handleCategoryChange = (category) => {
       setselectedCategory(category)
       currentPage(1)
