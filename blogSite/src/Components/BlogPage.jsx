@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BlogCards from './BlogCards';
 import Pagination from './Pagination';
+import CategorySelation from './CategorySelation';
 
 const BlogPage = () => {
 
@@ -12,16 +13,23 @@ const BlogPage = () => {
 
     useEffect( () => {
         const fetchBlogs = async () => {
-            let url = `http://localhost:5000/blogs?page=${currentPage}&limit=${pageSize}`
+            try {
+              let url = `http://localhost:5000/blogs?page=${currentPage}&limit=${pageSize}`
 
             // filter by category
             if(selectedCategory) {
               url+= `&category=${selectedCategory}`
             }
 
-            const response = await fetch(url)
-            const data = await response.json()
-            setBlogs(data)
+            const response = await fetch(url) //fetch all data from the API
+            if(!response.ok) {
+              throw new Error("Failed to fetch data")
+            }
+            const data = await response.json() //Convet response to JSON 
+            setBlogs(data) //Update the states with fetched blogs
+        } catch (error) {
+              console.error( "Error fetching blogs:", error)
+            }
         }
         fetchBlogs()
     },[currentPage,pageSize,selectedCategory])
@@ -32,14 +40,14 @@ const BlogPage = () => {
 
     const handleCategoryChange = (category) => {
       setselectedCategory(category)
-      currentPage(1)
+      currentPage
       setActiveCategory(category)
 
     }
   return (
     <div>
       {/* catagory sections */}
-      <h3>Blogs Catagory</h3>
+      <CategorySelation onSelectedCategory={handleCategoryChange} selectedCategory={selectedCategory} activeCategory={activeCategory} />
 
       {/* BlogsCards */}
       <div>
