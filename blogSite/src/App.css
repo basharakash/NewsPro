@@ -27,11 +27,11 @@
 }
 
 .pagination li.activePagination {
-    background: #fa8231;
+    background: #22c55e ;
     color: white;
     border-radius: 4px;
 }
 
 .active-button-color {
-    color: #fa8231;
+    color: #22c55e ;
 }

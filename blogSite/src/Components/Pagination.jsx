@@ -1,6 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 
+// eslint-disable-next-line react/prop-types
 const Pagination = ({ pageChange, currentPage, blogs, pageSize }) => {
+  // eslint-disable-next-line react/prop-types
   const totalPages = Math.ceil(blogs.length / pageSize);
 
   const renderPaginationLink = () => {
